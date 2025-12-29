@@ -150,10 +150,12 @@ document.getElementById('roteiroForm').addEventListener('submit', async function
     const estruturaInfo = estruturas[estruturaValue];
     const estruturaTexto = estruturaSelect.options[estruturaSelect.selectedIndex].text;
     const estruturaCompleta = estruturaInfo ? `${estruturaInfo.nome} - ${estruturaInfo.descricao}` : estruturaTexto;
+    const produto = document.getElementById('produto').value.trim();
     const cta = document.getElementById('cta').value.trim();
+    const melhorarRoteiro = document.getElementById('melhorarRoteiro').value.trim();
     
-    if (!tema || !tempo || !ganchoValue || !estruturaValue || !cta) {
-        alert('Por favor, preencha todos os campos!');
+    if (!tema || !tempo || !ganchoValue || !estruturaValue || !produto || !cta) {
+        alert('Por favor, preencha todos os campos obrigatórios!');
         return;
     }
     
@@ -178,7 +180,9 @@ document.getElementById('roteiroForm').addEventListener('submit', async function
             gancho: ganchoValue,
             gancho_exemplo: ganchoTexto,
             estrutura: estruturaCompleta,
-            cta: cta
+            produto: produto,
+            cta: cta,
+            melhorar_roteiro: melhorarRoteiro
         };
         
         // Fazer requisição POST para o endpoint
