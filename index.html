@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteiria - Gerador de Roteiros para Vídeos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Menu Lateral -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>🎬 Roteiria</h2>
+            <button class="close-sidebar" id="closeSidebar">×</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-section="criar-roteiro">
+                <span>📝</span> Criar Roteiro
+            </a>
+            <a href="#" class="nav-item" data-section="temas-alta">
+                <span>🔥</span> Temas em Alta
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Overlay para mobile -->
+    <div class="overlay" id="overlay"></div>
+
+    <div class="container">
+        <header>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <h1>🎬 Roteiria</h1>
+            <p class="subtitle">Crie roteiros profissionais para seus vídeos</p>
+        </header>
+
+        <main>
+            <!-- Seção: Criar Roteiro -->
+            <section id="criar-roteiro" class="content-section active">
+            <form id="roteiroForm" class="form-container">
+                <div class="form-group">
+                    <label for="tema">Tema do Vídeo</label>
+                    <input 
+                        type="text" 
+                        id="tema" 
+                        name="tema" 
+                        placeholder="Ex: Como aumentar vendas online"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="tempo">Duração do Vídeo</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="tempo" value="15" required>
+                            <span>15 segundos</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="tempo" value="30" required>
+                            <span>30 segundos</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="tempo" value="60" required>
+                            <span>60 segundos</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="tempo" value="90" required>
+                            <span>90 segundos</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="gancho">Tipo de Gancho</label>
+                    <select id="gancho" name="gancho" required>
+                        <option value="">Selecione um tipo de gancho</option>
+                        <option value="declaracao-polemica">Declaração polêmica ou contrária ao senso comum - "Você não precisa de X para conseguir Y."</option>
+                        <option value="verdade-dura">Verdade dura - "Se você continuar fazendo isso, vai perder dinheiro."</option>
+                        <option value="erro-comum">Erro comum - "O maior erro que quase todo mundo comete é esse."</option>
+                        <option value="promessa-direta">Promessa direta (resultado específico) - "Em 7 dias, você consegue X sem Y."</option>
+                        <option value="curiosidade-aberta">Curiosidade aberta (loop) - "Tem um detalhe aqui que muda tudo."</option>
+                        <option value="pergunta-prende">Pergunta que "prende" (sim/não) - "Você também sente que…?"</option>
+                        <option value="identificacao-instantanea">Identificação instantânea (chamada do público) - "Se você é [perfil], presta atenção nisso."</option>
+                        <option value="alerta-urgencia">Alerta/urgência - "Para tudo. Se você fizer isso errado, dá ruim."</option>
+                        <option value="quebra-expectativa">Quebra de expectativa - "Eu vou te recomendar o contrário do que todo mundo fala."</option>
+                        <option value="numeros-contraste">Números e contraste - "Eu troquei X por Y e o resultado foi Z."</option>
+                        <option value="confissao-vulnerabilidade">Confissão / vulnerabilidade - "Eu errei feio nisso por anos."</option>
+                        <option value="prova-rapida">Prova rápida (resultado na cara) - "Olha isso aqui." (mostra antes/depois, print, dado, gráfico)</option>
+                        <option value="o-que-ninguem-conta">"O que ninguém te conta" - "Ninguém fala isso porque não dá like, mas…"</option>
+                        <option value="mini-historia">Mini-história em 1 frase - "Ontem aconteceu uma coisa que me fez mudar minha estratégia."</option>
+                        <option value="desafio-direto">Desafio direto - "Duvido você fazer isso por 3 dias."</option>
+                        <option value="mandato-comando">Mandato / comando - "Faz isso agora."</option>
+                        <option value="mito-vs-realidade">Mito vs realidade - "Mito: X. Realidade: Y."</option>
+                        <option value="analogia-forte">Analogia forte - "Isso é como tentar encher um balde furado."</option>
+                        <option value="lista-rapida">Lista rápida - "3 coisas que você precisa parar hoje."</option>
+                        <option value="diagnostico-teste">Diagnóstico / teste - "Se você responde 'sim' pra isso, você tá travado."</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="estrutura">Estrutura de Copy</label>
+                    <select id="estrutura" name="estrutura" required>
+                        <option value="">Selecione uma estrutura</option>
+                        <option value="AIDA">1) AIDA - Atenção → Interesse → Desejo → Ação</option>
+                        <option value="PAS">2) PAS - Problema → Agitação → Solução</option>
+                        <option value="BAB">3) BAB - Antes → Depois → Ponte</option>
+                        <option value="QUEST">4) QUEST - Qualificar → Entender → Educar → Estimular → Transicionar</option>
+                        <option value="FAB">5) FAB - Funcionalidade → Vantagem → Benefício</option>
+                        <option value="4Ps">6) 4Ps - Promessa → Imagem → Prova → Impulso</option>
+                        <option value="PPP">7) PPP - Prévia → Prova → Proposta</option>
+                        <option value="StorySelling">8) Venda por História - Contexto → Conflito → Virada → Resultado → Moral</option>
+                        <option value="Problem-Mechanism-Solution">9) Problema–Mecanismo–Solução</option>
+                        <option value="SPIN">10) SPIN - Situação → Problema → Implicação → Necessidade-Pagamento</option>
+                        <option value="ACCA">11) ACCA - Conscientização → Compreensão → Convencimento → Ação</option>
+                        <option value="Hook-Value-CTA">12) Gancho–Valor–CTA (Reels)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cta">Chamada para Ação (CTA)</label>
+                    <input 
+                        type="text" 
+                        id="cta" 
+                        name="cta" 
+                        placeholder="Ex: Acesse o link na bio para saber mais"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    Gerar Roteiro
+                </button>
+            </form>
+
+                <div id="resultado" class="resultado-container" style="display: none;">
+                    <div class="resultado-header">
+                        <h2>Seu Roteiro</h2>
+                        <button id="copiarBtn" class="btn-secondary">Copiar</button>
+                    </div>
+                    <textarea id="roteiroContent" class="roteiro-content" placeholder="Seu roteiro aparecerá aqui..."></textarea>
+                </div>
+            </section>
+
+            <!-- Seção: Temas em Alta -->
+            <section id="temas-alta" class="content-section">
+                <div class="temas-container">
+                    <h2>🔥 Temas em Alta</h2>
+                    <p class="section-description">Pesquise temas populares por área de atuação</p>
+                    
+                    <div class="form-group">
+                        <label for="areaAtuacao">Área de Atuação</label>
+                        <div class="tags-input-container">
+                            <input 
+                                type="text" 
+                                id="areaAtuacao" 
+                                placeholder="Digite uma área e pressione Enter"
+                                class="tags-input"
+                            >
+                            <div class="tags-container" id="tagsContainer"></div>
+                        </div>
+                        <small class="hint">Pressione Enter para adicionar uma tag</small>
+                    </div>
+
+                    <button type="button" class="btn-primary" id="pesquisarTemas">
+                        🔍 Pesquisar Temas
+                    </button>
+
+                    <div id="resultadoTemas" class="temas-resultado" style="display: none;">
+                        <h3>Temas Encontrados</h3>
+                        <div id="temasList" class="temas-list"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 Roteiria - Gerador de Roteiros</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
